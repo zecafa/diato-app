@@ -8,7 +8,7 @@ import createRenderTarget   from '__test_helper__/createRenderTarget'
 
 const url = {
   home: {path: `/`},
-  page2: {path: `/page2`}
+  page1: {path: `/page1`}
 };
 
 const currPath = location.pathname;

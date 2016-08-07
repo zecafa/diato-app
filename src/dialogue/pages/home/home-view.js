@@ -1,17 +1,78 @@
-import {h, div, h1, h2, button, p} from '@cycle/dom'
+import {h, div, h1, form, label, span, select, option} from '@cycle/dom'
+import {notesEN, scaleList, diagrams} from 'utils/data';
+
+const getForm = () =>
+  div('.panel.panel-default', [
+    div('.panel-body', [
+      form('.form-inline', [
+        div('.form-group', [
+          label('.sr-only', {
+            'attributes': {
+              'className': 'sr-only',
+              'htmlFor': 'inputTone'
+            }
+          }, [`tone`]),
+          `
+          `,
+          select('#note-select.form-control', notesEN.map( note =>
+            option([note])
+          ))
+        ]),
+        div('.form-group', [
+          label('.sr-only', {
+            'attributes': {
+              'className': 'sr-only',
+              'htmlFor': 'inputScale'
+            }
+          }, [`Scale`]),
+          `
+          `,
+          select('#scale-select.form-control',
+            scaleList.map( scale =>
+              option({
+                'attributes': {
+                  'value': scale.key
+                }
+              }, [scale.name])
+          ))
+        ]),
+        div('.form-group', [
+          label('.sr-only', {
+            'attributes': {
+              'className': 'sr-only',
+              'htmlFor': 'inputDiagram'
+            }
+          }, [`Diagram`]),
+          `
+          `,
+          select('#diagram-select.form-control',
+            diagrams.map(diagram => option([diagram.name])
+          ))
+        ])
+      ])
+    ])
+  ]);
+
+const getScale = (scale) =>
+  div('.panel.panel-default', [
+    div('.panel-heading', ['Escala']),
+    div('.panel-body', [ ...scale ])
+  ]);
+
+const getDiagram = (diagram) =>
+  div('.panel.panel-default', [
+    div('.panel-heading', ['Esquema diato']),
+    div('.panel-body', [JSON.stringify(diagram)])
+  ]);
 
 const view = (state$) =>
-  // mapping over our merged model to update 'count'
-  state$.map(count =>
-    div('.homepage', [
-      h1('.content-subhead', ['Home Page']),
-      h1([`Welcome to the Home Page`]),
-      div('.pure-u-1-2 .counter-table',[
-        button('.decrement .pure-button .button-error .pure-u-1-2', 'Decrement'),
-        button('.increment .pure-button .button-success .pure-u-1-2', 'Increment'),
-        div('.pure-u-1 .counter-table-result',[
-          h2('Counter: ' + count)
-        ])
+  state$.map(state =>
+    div('.container', [
+      div('.starter-template', [
+        h1([`Diato utils APP`]),
+        getForm(),
+        getScale(state.scale),
+        getDiagram(state.diagram)
       ])
     ])
   );

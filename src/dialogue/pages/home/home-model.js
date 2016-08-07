@@ -1,14 +1,28 @@
 import Rx from 'rx';
-// merging our clicks from our intent
-// (a,b) -> num
-const homeModel = ({inc$,dec$, props$}) => {
-  return Rx.Observable.merge(
-    props$.take(1).map((counter) => parseFloat(counter)),
-    inc$,
-    dec$
-    )
-    .scan((x, y) =>  x + y)
-    .shareReplay(1);
+import {buildScale, getHandDiagramByKey} from 'utils/data';
+
+const homeModel = ({changeNote$, changeScale$, changeDiagram$}) => {
+  const note$ = changeNote$.startWith('C');
+  const scale$ = changeScale$.startWith('m');
+  const diagram$ = changeDiagram$.startWith('semi-simetric');
+  const selectScale$ = Rx.Observable.combineLatest(
+      note$,
+      scale$,
+      (n, s) => buildScale(n, s)
+    );
+  const selectDiagram$ = diagram$.map(key => getHandDiagramByKey(key, 'right') );
+
+
+  return Rx.Observable.combineLatest(
+    selectScale$,
+    selectDiagram$,
+
+    (s1, s2) => ({
+      scale: s1,
+      diagram: s2
+    })
+
+  );
 }
 
 export default homeModel;

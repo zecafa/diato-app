@@ -1,6 +1,6 @@
-// homeIntent creates streams from click events on .increment & .decrement
 const homeIntent = s => ({
-    inc$: s.DOM.select('.increment').events('click').map(ev => +1),
-    dec$: s.DOM.select('.decrement').events('click').map(ev => -1),
+    changeNote$: s.DOM.select('#note-select').events('click').map(ev => ev.target.value),
+    changeScale$: s.DOM.select('#scale-select').events('click').map(ev => ev.target.value),
+    changeDiagram$: s.DOM.select('#diagram-select').events('click').map(ev => ev.target.value)
   });
 export default homeIntent
