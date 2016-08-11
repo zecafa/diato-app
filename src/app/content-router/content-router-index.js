@@ -1,7 +1,7 @@
 import switchPath from 'switch-path';
 import Rx         from 'rx';
 import isolate    from '@cycle/isolate';
-import Home       from 'scales/index';
+import Scales       from 'scales/index';
 import Page1      from 'page1/index';
 
 function ContentRouter(sources) {
@@ -9,8 +9,9 @@ function ContentRouter(sources) {
 
     // use switchpath to marry up our current url with component
     const pathAndValue = switchPath(pathname, {
-      '/': Home,
-      '/page1': Page1
+      '/': Scales,
+      '/scales': Scales,
+      '/chords': Page1
     });
 
     // the result from the switchpath

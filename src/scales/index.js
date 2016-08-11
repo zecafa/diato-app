@@ -4,8 +4,7 @@ import model  from './model';
 
 // returning our DOM
 const Home = (sources) => {
-  const props$ = sources.Props;
-  const actions = intent(sources);
+  const actions = intent(sources.DOM);
   const state$ = model({...actions});
 
   return {

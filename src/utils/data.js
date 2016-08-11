@@ -46,6 +46,26 @@ export const scaleList = [
     value: [0,2,3,5,7,8,10]
   },
   {
+    key: '5m',
+    name: 'pentatonica menor',
+    value: [0,3,5,7,10]
+  },
+  {
+    key: '5M',
+    name: 'pentatonica mayor',
+    value: [0,2,4,7,10]
+  },
+  {
+    key: 'blues',
+    name: 'blues mayor',
+    value: [0,4,6,7,8,10]
+  },
+  {
+    key: 'japo',
+    name: 'japonesa',
+    value: [0,1,5,7,10]
+  },
+  {
     key: 'cro',
     name: 'cromatica',
     value: [0,1,2,3,4,5,6,7,8,9,10,11]
