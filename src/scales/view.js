@@ -61,7 +61,6 @@ const getScale = (scale) =>
   ]);
 
 const getButton = (note, scale) => {
-  console.log(note, scale, indexOf(note, scale));
   let btnClass = indexOf(note, scale) !== -1
    ? '.button'
    : '.button.disabled';

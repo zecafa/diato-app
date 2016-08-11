@@ -9,6 +9,7 @@
     "test-server": "./node_modules/.bin/webpack --config webpack.test.config.js --watch",
     "build": "webpack --progress --colors --config webpack.production.config.js",
     "clean": "rm -rf build/",
+    "deploy": "npm run build && surge --domain diato-app.surge.sh ./build",
     "test": "testem"
   },
   "repository": {

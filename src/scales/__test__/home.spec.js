@@ -4,9 +4,9 @@ import {mockDOMSource,
   div,
   makeDOMDriver}    from '@cycle/dom'
 import Cycle              from '@cycle/core'
-import intent             from '../home-intent'
-import model              from '../home-model'
-import view               from '../home-view'
+import intent             from '../intent'
+import model              from '../model'
+import view               from '../view'
 import mockClickEvent     from './mockClickEvent'
 import createRenderTarget from '__test_helper__/createRenderTarget'
 

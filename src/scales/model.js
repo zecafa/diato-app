@@ -6,7 +6,7 @@ const homeModel = ({changeNote$, changeScale$, changeDiagram$}) => {
   const scale$ = changeScale$.startWith('M');
   const diagram$ = changeDiagram$.startWith('semi-simetric');
   const selectScale$ = Rx.Observable.combineLatest(
-      note$, 
+      note$,
       scale$,
       (n, s) => buildScale(n, s)
     );
