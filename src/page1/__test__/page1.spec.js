@@ -3,7 +3,7 @@ import Rx                   from 'rx'
 import Cycle                from '@cycle/core'
 import {div, makeDOMDriver} from '@cycle/dom'
 import {makeHistoryDriver}  from '@cycle/history';
-import page1                from '../page1-index'
+import page1                from '../index'
 import createRenderTarget   from '__test_helper__/createRenderTarget'
 
 

@@ -3,11 +3,10 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval-source-map',
-
+  devtool: 'cheap-inline-module-source-map',
   entry: {
     app: [
-      path.join(__dirname, 'src/app')
+      path.join(__dirname, 'src/index')
     ]
   },
 
@@ -23,7 +22,8 @@ module.exports = {
     modulesDirectories: ['src', 'node_modules'],
     alias: {
       'pages': path.join(__dirname, '/src/dialogue/pages/'),
-      'utils': path.join(__dirname, '/src/dialogue/utils/'),
+      'utils': path.join(__dirname, '/src/utils/'),
+      'app': path.join(__dirname, '/src/app/'),
       '__test_helper__': path.join(__dirname, '/src/__test__/helper/')
     }
   },
@@ -34,6 +34,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!scss-loader'
       },
       {
         test: /\.png$/,

@@ -3,12 +3,12 @@ import Rx                   from 'rx'
 import Cycle                from '@cycle/core'
 import {div, makeDOMDriver} from '@cycle/dom'
 import {makeHistoryDriver}  from '@cycle/history';
-import contentRouter        from '../content-router-index'
+import contentRouter        from 'app/content-router-index'
 import createRenderTarget   from '__test_helper__/createRenderTarget'
 
 const url = {
   home: {path: `/`},
-  page2: {path: `/page2`}
+  page1: {path: `/page1`}
 };
 
 const currPath = location.pathname;

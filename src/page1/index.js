@@ -1,7 +1,7 @@
 import Rx   from 'rx'
-import view from './page2-view'
+import view from './view'
 
-const Page2 = (sources) => {
+const Page1 = (sources) => {
   const props$ = sources.Props;
   const $view = view(props$);
 
@@ -11,4 +11,4 @@ const Page2 = (sources) => {
   }
 };
 
-export default Page2
+export default Page1
