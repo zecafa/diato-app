@@ -22,12 +22,12 @@ const drivers = {
 };
 
 const rerun = rerunner(run);
-rerun(App, drivers);
+rerun(Main, drivers);
 
 if (module && module.hot) {
-  module.hot.accept('./app', () => {
-    const app = require('./app').default;
-    rerun(app, drivers);
+  module.hot.accept('./main', () => {
+    const main = require('./main').default;
+    rerun(main, drivers);
   });
   module.hot.accept();
 }
